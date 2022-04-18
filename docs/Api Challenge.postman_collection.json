@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "0e37eaf9-ea3a-45fb-8dd1-e64acdd7ea26",
+		"name": "Api Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a new employee",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Berkley\",\r\n    \"email\": \"berkley@hotmail.com\"   ,\r\n    \"department\": \"globo\",\r\n    \"salary\": 10000.00,\r\n    \"birthDate\": \"29-11-1980\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/employees/",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employee by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{localUrl}}/employees/1",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"employees",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 130,\r\n    \"name\": \"RTitoria\",\r\n    \"email\": \"vito@hotmail.com\"   ,\r\n    \"department\": \"node\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/employees/list",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"employees",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report Employee Age",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localUrl}}/reports/employees/age",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"reports",
+						"employees",
+						"age"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report Employee Salary",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localUrl}}/reports/employees/salary",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"reports",
+						"employees",
+						"salary"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HeaderAuthorization",
+			"value": "21fd2eb403794394ef66db42d12983d2",
+			"type": "string"
+		},
+		{
+			"key": "localUrl",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
