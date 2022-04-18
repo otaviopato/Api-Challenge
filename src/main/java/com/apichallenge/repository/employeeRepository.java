@@ -29,4 +29,7 @@ public interface employeeRepository extends JpaRepository<Employee, Long> {
 
   @Query(value = "SELECT AVG(salary) as average_salary FROM employee", nativeQuery = true)
   public double getSalaryAverage();
+
+  // @Query(value = "DELETE FROM employee WHERE id = :id", nativeQuery = true)
+  // public List<Employee> deleteId(@Param("id") long id);
 }
