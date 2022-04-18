@@ -27,7 +27,7 @@ This project consists in my first Java API Rest using Spring Boot 2.6.6, Docker 
 
 ## Overall ##
 
-- This project contains some interesting things, like you can change your application-{env}.properties and when run java selecte wich one you want use;
+- This project contains some interesting things, like you can change your application-{env}.properties, so just create the .jar than run java select wich one you want use;
 - It was used docker-compose because exists two docker images, one for [database mysql](docker/db/Dockerfile) and other for run the [Java API](docker/api/Dockerfile) and this docker images can interact directly each other by a network bridge;
 - If you want to make requests, just import the [Postman Collection](docs/Api%20Challenge.postman_collection.json) that have variables making easier to use, or also you have too the [curl's requests](#requests-samples);
 - Exists one extra route, because if you follow exactly the [patterns of HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT), PUT should be used to update entirely a resource, but also i created an method PATCH, just for update a specific property of resource;

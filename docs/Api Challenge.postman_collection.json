@@ -37,9 +37,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{localUrl}}/employees/",
+					"raw": "{{url}}/employees/",
 					"host": [
-						"{{localUrl}}"
+						"{{url}}"
 					],
 					"path": [
 						"employees",
@@ -52,7 +52,6 @@
 		{
 			"name": "Get employee by id",
 			"protocolProfileBehavior": {
-				"disableBodyPruning": true,
 				"disabledSystemHeaders": {}
 			},
 			"request": {
@@ -64,14 +63,10 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "{{localUrl}}/employees/1",
+					"raw": "{{url}}/employees/1",
 					"host": [
-						"{{localUrl}}"
+						"{{url}}"
 					],
 					"path": [
 						"employees",
@@ -82,12 +77,9 @@
 			"response": []
 		},
 		{
-			"name": "List all employees",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "Put Update employee",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [
 					{
 						"key": "Authorization",
@@ -97,7 +89,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 130,\r\n    \"name\": \"RTitoria\",\r\n    \"email\": \"vito@hotmail.com\"   ,\r\n    \"department\": \"node\"\r\n\r\n}",
+					"raw": "{\r\n    \"name\": \"Wagnelson\",\r\n    \"email\": \"dbmaster@yahoo.com\",\r\n    \"department\": \"IT\",\r\n    \"salary\": 237842.0,\r\n    \"birthDate\": \"01-01-1998\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,9 +97,89 @@
 					}
 				},
 				"url": {
-					"raw": "{{localUrl}}/employees/list",
+					"raw": "{{url}}/employees/2",
 					"host": [
-						"{{localUrl}}"
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Update employee",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salary\": 237842.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/employees/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hard Delete a employee by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "21fd2eb403794394ef66db42d12983d2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{HeaderAuthorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/employees/list",
+					"host": [
+						"{{url}}"
 					],
 					"path": [
 						"employees",
@@ -132,9 +204,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{localUrl}}/reports/employees/age",
+					"raw": "{{url}}/reports/employees/age",
 					"host": [
-						"{{localUrl}}"
+						"{{url}}"
 					],
 					"path": [
 						"reports",
@@ -160,9 +232,9 @@
 					}
 				],
 				"url": {
-					"raw": "{{localUrl}}/reports/employees/salary",
+					"raw": "{{url}}/reports/employees/salary",
 					"host": [
-						"{{localUrl}}"
+						"{{url}}"
 					],
 					"path": [
 						"reports",
@@ -203,6 +275,21 @@
 		{
 			"key": "localUrl",
 			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "dockerUrl",
+			"value": "localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "prodUrl",
+			"value": "https://api-challenge-ssys.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "https://api-challenge-ssys.herokuapp.com",
 			"type": "string"
 		}
 	]
