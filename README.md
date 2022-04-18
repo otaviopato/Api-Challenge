@@ -67,14 +67,14 @@ curl --location --request POST 'localhost:8080/employees/' \
 
 ```shell
 curl --location --request GET 'localhost:8080/employees/1' \
---header 'Authorization: 21fd2eb403794394ef66db42d12983d2' \
+--header 'Authorization: 21fd2eb403794394ef66db42d12983d2'
 ```
 
 ### List all employees ###
 
 ```shell
 curl --location --request GET 'localhost:8080/employees/list' \
---header 'Authorization: 21fd2eb403794394ef66db42d12983d2' \
+--header 'Authorization: 21fd2eb403794394ef66db42d12983d2'
 ```
 
 ### Report employee age ###
