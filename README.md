@@ -11,6 +11,9 @@
   - [Requests samples](#requests-samples)
     - [Create a new employee](#create-a-new-employee)
     - [Get employee by id](#get-employee-by-id)
+    - [List all employees](#list-all-employees)
+    - [Report employee age](#report-employee-age)
+    - [Report employee salary](#report-employee-salary)
 
 ## Commands ##
 
