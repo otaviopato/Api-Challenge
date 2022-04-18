@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: relational-db
+    build:
+      context: ./
+      dockerfile: ./docker/db/Dockerfile
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - "8091:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 196218
+      MYSQL_DATABASE: api
+    networks:
+      - spring-cloud-network
+
+  api:
+    container_name: api-spring
+    build:
+      context: ./
+      dockerfile: ./docker/api/Dockerfile
+    ports:
+      - "8081:8080"
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge
