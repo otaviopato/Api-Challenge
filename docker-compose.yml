@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    container_name: relational-db
+    container_name: db
     hostname: "relational-database"
     build:
       context: ./
@@ -15,6 +15,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 196218
       MYSQL_DATABASE: api
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
     networks:
       - spring-cloud-network
 
@@ -24,7 +28,8 @@ services:
       context: ./
       dockerfile: ./docker/api/Dockerfile
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - "8081:8080"
     networks:
